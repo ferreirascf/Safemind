@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <title>Safemind</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Ícones do Google -->
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                <style>
+                    * {
+                        box-sizing: border-box;
+                        padding: 0;
+                        margin: 0;
+                    }
+                    body {
+                        font-family: Georgia, 'Times New Roman', Times, serif;
+                        display: flex;
+                    }
+                    .sidebar {
+                        width: 60px;
+                        background-color: rgb(231, 249, 255);
+                        height: 100vh;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        align-items: center;
+                        padding-top: 10px;
+                        position: fixed;
+                        left: 0;
+                        top: 0;       
+                        z-index: 100;
+                        border-left: 2px solid black;
+                        border-right: 2px solid black;
+                    }
+                    .sidebar i {
+                        color: black;
+                        font-size: 26px;
+                        margin: 20px 0;
+                        cursor: pointer;
+                        transition: 0.2s;
+                        padding: 10px;
+                        border-radius: 10px;
+                        border-right: 2px solid gray;
+                        border-left: 2px solid gray;
+                    }
+                    .sidebar i:hover {
+                        background-color: #333;
+                    }
+                    .icon-group {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 20px;
+                    }
+                    .content {
+                        margin-left: 60px;
+                        padding: 20px;
+                        flex-grow: 1;
+                        align-items: center;
+                    }
+                    .botao-proximidade {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        padding: 12px 16px;
+                        font-size: 14px;
+                        background-color: rgb(231, 249, 255);
+                        color: black;
+                        border-radius: 8px;
+                        cursor: pointer;
+                        margin-top: 40px;
+                        width: 100%;
+                        max-width: 300px;
+                        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                    }
+                    .botao-sugestoes {
+                        margin-top: 20px;
+                        padding: 12px 16px;
+                        font-size: 20px;
+                        background-color: rgb(231, 249, 255);
+                        color: black;
+                        border-radius: 10px;
+                        cursor: pointer;
+                        width: 100%;
+                        max-width: 300px;
+                        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                        border-left: 2px solid #333;
+                        border-right: 2px solid #333;
+                    }
+                    .botao-sugestoes:hover {
+                        background-color: #004d40;
+                        color: white;
+                    }
+                    .lista-sugestoes {
+                        margin-top: 15px;
+                        display: flex;
+                        overflow-x: auto;
+                        gap: 12px;
+                        width: 100%;
+                        padding-bottom: 10px;
+                        max-width: 100%;
+                    }
+                    .card-profissional {
+                        min-width: 160px;
+                        height: 180px;
+                        background-color: rgb(231, 249, 255);
+                        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                        font-weight: bold;
+                        flex-shrink: 0;
+                        border-radius: 16px;
+                        border-left: 2px solid #333;
+                        border-right: 2px solid #333;
+                        padding: 10px;
+                    }
+                    .card-profissional img {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        object-fit: cover;
+                        margin-bottom: 10px;
+                    }
+                    .card-profissional span {
+                        font-size: 14px;
+                        font-weight: bold;
+                        color: #333;
+                    }
+                    h1, p {
+                        text-align: center;
+                        margin-top: 5px;
+                    }
+                    /* Formato para Celular */
+                    @media (max-width: 600px) {
+                        body {
+                        flex-direction: column;
+                        }
+                        h1, p {
+                            text-align: center;
+                            margin-top: 10px;
+                        }
+                        .sidebar {
+                        flex-direction: row;
+                        width: 100%;
+                        height: auto;
+                        border-top: 2px solid black;
+                        border-bottom: 2px solid black;
+                        justify-content: space-around;
+                        padding: 10px 0;
+                        position: fixed;
+                        bottom: 0;
+                        top: auto;
+                        left: 0;
+                    }
+                            .icon-group {
+                                flex-direction: row;
+                                gap: 10px;
+                            }
+                            .sidebar i {
+                                font-size: 20px;
+                                margin: 0;
+                                border: none;
+                            }
+                            .content {
+                                margin-left: 0;
+                                margin-top: 60px;
+                                padding: 10px;
+                            }
+                            .botao-proximidade,
+                            .botao-sugestoes {
+                                max-width: 100%;
+                                font-size: 16px;
+                            }
+                            .lista-sugestoes {
+                                overflow-x: scroll;
+                            }
+                            .card-profissional {
+                                min-width: 140px;
+                                height: 160px;
+                            }
+                            h1 {
+                                font-size: 20px;
+                            }
+                            p {
+                            font-size: 14px;
+                            }
+                        }
+            </style>
+        </head>
+      <body>
+        <div class="sidebar">
+        <div class="icon-group">
+        <i class="material-icons" title="Início">home</i>
+        <i class="material-icons" title="Pesquisar">search</i>
+        <i class="material-icons" title="Descobrir">explore</i>
+        <i class="material-icons" title="Configurações">menu</i>
+        <i class="material-icons" title="Conta">person</i>
+        </div>
+        <img src="logo.png" alt="Logo do app" class="logo">
+        </div>
+            <div class="content">
+        <h1>Bem vindo ao Safemind</h1>
+            <p>Aqui cuidamos da sua mente!</p>
+                <button class="botao-proximidade">
+                    <span class="material-icons">location_on</span>
+                        Pesquisar por proximidade
+                </button>
+                    <button class="botao-sugestoes">
+                        Descubra seu Temperamento aqui!
+                    </button>
+                            <div class="lista-sugestoes">
+                            <div class="card-profissional">
+                                <img src="dra-jaqueline.png" alt="Foto da Dra. Jaqueline">
+                                    <span>Dra. Jaqueline Fontoura</span>
+                            </div>
+                            <div class="card-profissional">
+                                <img src="dra-candida.jpg" alt="Foto da Dra. Cândida">
+                                    <span>Dra. Cândida Mantovani</span>
+                            </div>
+                            <div class="card-profissional">
+                                <img src="dr-lucas.jpg" alt="Foto do Dr. Lucas">
+                                    <span>Dr. Lucas Dullius</span>
+                            </div>
+                            <div class="card-profissional">
+                                <img src="dra-priscila.jpg" alt="Foto da Dra. Priscila">
+                                    <span>Dra. Priscila Oliveira</span>
+                            </div>
+                            <div class="card-profissional">
+                                <img src="dra-janaina.jpg" alt="Foto da Dra. Janaina">
+                                    <span>Dra. Janaina Santos</span>
+                            </div>
+                        </div>
+                    </div>
+                </body>
+            </html>
