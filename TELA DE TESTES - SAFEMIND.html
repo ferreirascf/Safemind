@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8" />
+            <title>Descubra agora seu temperamento!</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <!-- Ícones do Google -->
+                    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+                    <style>
+                    * {
+                    box-sizing: border-box;
+                    margin: 0;
+                    padding: 0;
+                    }
+                    body {
+                    font-family: Georgia, 'Times New Roman', Times, serif;
+                    padding: 20px;
+                    background: white;
+                    }
+                    h1 {
+                    text-align: center;
+                    color: black;
+                    margin: 20px 0;
+                    }
+                    .question {
+                    margin-bottom: 20px;
+                    background: rgb(231, 249, 255);
+                    padding: 15px;
+                    border-radius: 6px;
+                    box-shadow: 0 0 4px #ccc;
+                    }
+                    label {
+                    display: block;
+                    margin: 8px 0;
+                    font-size: 18px;
+                    }
+                    input[type="radio"] {
+                    transform: scale(1.3);
+                    margin-right: 8px;
+                    accent-color: #007acc;
+                    }
+                    button {
+                    display: block;
+                    background: rgb(231, 249, 255);
+                    color: black;
+                    margin: 30px auto;
+                    border: 2px solid black;
+                    padding: 12px 20px;
+                    font-size: 16px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    }
+                    button:hover {
+                    background-color: white;
+                    }
+                    #result {
+                    text-align: center;
+                    margin-top: 30px;
+                    font-size: 20px;
+                    font-weight: bold;
+                    color: #444;
+                    }
+                    .botao-home {
+                        position: fixed;
+                        top: 10px;
+                        right: 10px;
+                        background-color: rgb(231, 249, 255);
+                        color: black;
+                        padding: 10px;
+                        border-radius: 8px;
+                        text-decoration: none;
+                        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                        z-index: 999;
+                    }
+                        @media (max-width: 600px) {
+                        h1 {
+                        font-size: 20px;
+                        margin-top: 40px;
+                        }
+                        .question {
+                        padding: 12px;
+                        font-size: 16px;
+                        }
+                        label {
+                        font-size: 16px;
+                        }
+                        input[type="radio"] {
+                        transform: scale(1.2);
+                        }
+                        button {
+                        font-size: 18px;
+                        padding: 14px;
+                        }
+                        #result {
+                        font-size: 18px;
+                        }
+                    }
+                </style>
+            </head>
+                <body>
+                    <a href="TELA DE INICIO - SAFEMIND.html" class="botao-home" title="Voltar à página inicial">
+                        <i class="material-icons">home</i>
+                    </a>
+                <h1>Responda sobre você.</h1>
+                    <form id="quizForm">
+                    <div class="question">
+                    <p>1. Como você costuma reagir em situações de estresse?</p>
+                    <label><input type="radio" name="q5" value="colerico" required>Fico impaciente e tento resolver logo.</label>
+                    <label><input type="radio" name="q5" value="sanguineo" required>Tento manter um bom humor.</label>
+                    <label><input type="radio" name="q5" value="melancolico" required>Fico introspectivo e preocupado.</label>
+                    <label><input type="radio" name="q5" value="fleumatico" required>Prefiro manter a calma e evitar o conflito.</label>
+                    </div>
+                    <div class="question">
+                    <p>2. Qual característica combina mais com você?</p>
+                    <label><input type="radio" name="q1" value="colerico" required>Determinação e liderança.</label>
+                    <label><input type="radio" name="q1" value="sanguineo" required>Sociável e entusiasmado.</label>
+                    <label><input type="radio" name="q1" value="melancolico" required>Perfeccionista e sensível.</label>
+                    <label><input type="radio" name="q1" value="fleumatico" required>Paciente e tranquilo.</label>
+                    </div>
+                    <div class="question">
+                    <p>3. O que você gosta de fazer no tempo livre?</p>
+                    <label><input type="radio" name="q2" value="colerico" required>Liderar projetos ou esportes.</label>
+                    <label><input type="radio" name="q2" value="sanguineo" required>Sair com os amigos ou ir para festas.</label>
+                    <label><input type="radio" name="q2" value="melancolico" required>Ler livros, refletir sozinho.</label>
+                    <label><input type="radio" name="q2" value="fleumatico" required>Descansar e aproveitar o momento calmo.</label>
+                    </div>
+                    <div class="question">
+                    <p>4. Como você lida com críticas?</p>
+                    <label><input type="radio" name="q3" value="colerico" required>Aceito e uso para melhorar, sem me abalar.</label>
+                    <label><input type="radio" name="q3" value="sanguineo">Não levo muito a sério e fico alegre.</label>
+                    <label><input type="radio" name="q3" value="melancolico">Fico chateado e penso muito sobre.</label>
+                    <label><input type="radio" name="q3" value="fleumatico">Tento entender, porém não deixo afetar em mim.</label>
+                    </div>
+                    <div class="question">
+                    <p>5. Qual dessas frases mais te representa?</p>
+                    <label><input type="radio" name="q4" value="colerico" required>Sou um líder nato.</label>
+                    <label><input type="radio" name="q4" value="sanguineo" required>Adoro estar cercado de amigos.</label>
+                    <label><input type="radio" name="q4" value="melancolico" required>Prefiro pensar antes de agir.</label>
+                    <label><input type="radio" name="q4" value="fleumatico" required>Calma é minha palavra-chave.</label>
+                    </div>
+                    <button type="submit">Ver Resultado</button>
+                    <div id="result">
+                    </div>
+                    </form>
+                <script>
+                const form = document.getElementById('quizForm');
+                const resultDiv = document.getElementById('result');
+                form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const answers = new FormData(form);
+                const scores = {
+                colerico: 0,
+                sanguineo: 0,
+                melancolico: 0,
+                fleumatico: 0,
+                };
+                    for (let [question, answer] of answers.entries()) {
+                    scores[answer]++;
+                }
+                    let maxScore = 0;
+                    let maxTemperament = '';
+                    for (const temperament in scores) {
+                    if (scores[temperament] > maxScore) {
+                    maxScore = scores[temperament];
+                    maxTemperament = temperament;
+                    }
+                }
+                    const messages = {
+                    colerico: "Você é Colérico: Decidido, líder, dedicado, energético.",
+                    sanguineo: "Você é Sanguíneo: Comunicativo, animado, sociável.",
+                    melancolico: "Você é Melancólico: Sensível, perfeccionista, reflexivo.",
+                    fleumatico: "Você é Fleumático: Calmo, paciente, equilibrado."
+                };
+                    resultDiv.innerHTML = `
+                    <p>${messages[maxTemperament]}</p>
+                        <button id="maisInfoBtn" style="
+                        display: block;
+                        margin: 20px auto;
+                        padding: 10px 20px;
+                        background: #007acc;
+                        color: white;
+                        border-radius: 6px;
+                        cursor: pointer;">
+                        Clique aqui para saber mais sobre seu temperamento!
+                        </button>
+        `;
+                        document.getElementById('maisInfoBtn').addEventListener('click', function () {
+                        window.location.href = 'temperament.html';
+                 } )}
+             );
+            </script>
+        </body>
+    </html>
