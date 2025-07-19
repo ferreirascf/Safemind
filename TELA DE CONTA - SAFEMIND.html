@@ -1,0 +1,195 @@
+<html> 
+    <html lang="pt-br">
+        <head>
+            <meta charset="UTF-8">
+            <title>Conta</title>
+            <meta name="viewport" content="width=device-width"/>
+            <!-- Icones do Google -->
+             <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+            <style>
+                body {
+                    font-family: Georgia, 'Times New Roman', Times, serif;
+                    padding: 20px;
+                    background: rgb(231, 249, 255);
+                }
+                h1 {
+                    color: black;
+                }
+                .user-info {
+                    font-size: 18px;
+                    margin-bottom: 20px;
+                    margin-left: 50px;
+                    align-items: center;
+                }
+                .sidebar {
+                    width: 60px;
+                    background-color: white;
+                    height: 100vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding-top: 10px;
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    z-index: 100;
+                    border-right: 1px solid black;
+                }
+                .sidebar i {
+                    color: black;
+                    font-size: 24px;
+                    margin: 18px 0;
+                    cursor: pointer;
+                    background-color: white;
+                    transition: 0.2s;
+                    padding: 10px;
+                    border-radius: 50%;
+                    border-left: 2px solid #ccc;
+                    border-right: 2px solid #ccc;
+                }
+                .sidebar:hover {
+                    border-color: black;
+                }
+                .icon-group {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 15px;
+                    margin-left: 8px;
+                    align-items: center;
+                }
+                .content {
+                    margin-left: 60px;
+                    padding: 20px;
+                    flex-grow: 1;
+                    background-color: white;
+                    text-align: center;
+                    margin-bottom: 20px;
+                    align-items: center;
+                    border: 2px solid black;
+                    justify-content: center;
+                    display: flex;
+                    gap: 10px;
+                    border-radius: 10px;
+                }
+                h1 {
+                    font-size: 24px;
+                    color: black;
+                    margin-bottom: 20px;
+                    align-items: center;
+                    margin-left: 40px;
+                }
+                .user-info {
+                    justify-content: center;
+                }
+                .about-app {
+                    background-color: white;
+                    padding: 10px;
+                    border: 2px solid black;
+                    border-radius: 10px;
+                    align-items: center;
+                    margin-left: 40px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                    margin-bottom: 20px;
+                }
+                    @media (max-width:600px) {
+                        body {
+                      flex-direction: column;
+                    }
+                    h1, p {
+                      text-align: center;
+                      margin-top: 10px;
+                    }
+                    .user-info {
+                      font-size: 16px;
+                      max-width: 100%;
+                      padding: 0 10px;
+                    }
+                    .sidebar {
+                      flex-direction: row;
+                      width: 100%;
+                      height: auto;
+                      border-top: 1px solid #ccc;
+                      border-bottom: 1px solid #ccc;
+                      justify-content: space-around;
+                      padding: 5px 0;
+                      position: fixed;
+                      bottom: 0;
+                      top: auto;
+                      left: 0;
+                    }
+                    .icon-group {
+                      flex-direction: row;
+                      gap: 5px;
+                    }
+                    .sidebar i {
+                      font-size: 28px;
+                      margin: 0;
+                      padding: 8px;
+                      justify-content: center;
+                    }
+                    .about-app {
+                      max-width: 100%;
+                      margin: 20px 0 40px 0;
+                      padding: 10px;
+                      border-radius: 8px;
+                      box-shadow: none;
+                      text-align: center;
+                      text-decoration: none;
+                    }
+                    .content {
+                      margin-left: 0;
+                      margin-bottom: 20px;
+                      padding: 15px;
+                      max-width: 100%;
+                      border-radius: 10px;
+                      box-shadow: none;
+                    }
+                    }
+            </style>
+        </head>
+    <body>
+    <div class="sidebar">
+        <div class="icon-group">
+            <a href="{{ url_for('inicio') }}" title="Início">
+                <i class="material-icons" title="Início">home</i>
+            </a>
+            <a href="{{ url_for('pesquisa') }}" title="Pesquisar">
+                <i class="material-icons" title="Pesquisar">search</i>
+            </a>
+            <a href="{{ url_for('explorar') }}" title="Descobrir">
+                <i class="material-icons" title="Descobrir">explore</i>
+            </a>
+            <a href="{{ url_for('configuracoes') }}" title="Configurações">
+                <i class="material-icons" title="Configurações">menu</i>
+            </a>
+            <a href="{{ url_for('conta') }}" title="Conta">
+                <i class="material-icons" title="Conta">person</i>
+            </a>
+        </div>
+        <img src="" alt="Logo do app" class="logo" />
+    </div>
+
+    <div class="content">
+        <i class="material-icons">person</i>
+        <h1>Minha Conta</h1>
+    </div>
+
+    <a href="https://docs.google.com/document/d/1ePGoPTbH4KJ1_iPqB6bo7PHQyb4-FTqA/edit?usp=sharing&ouid=111714754716092038412&rtpof=true&sd=true">
+        <div class="about-app">
+            <h2>Sobre o Safemind</h2>
+        </div>
+    </a>
+
+    <div class="user-info" id="boasVindas">É bom te ver por aqui!</div>
+
+    <script>
+        const nome = localStorage.getItem("nomeUsuario");
+        const boasVindas = document.getElementById("boasVindas");
+        boasVindas.textContent = nome
+            ? `Olá, ${nome}! Bem-vindo ao Safemind.`
+            : "Olá! Personalize sua conta.";
+    </script>
+</body>
+</html>

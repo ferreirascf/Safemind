@@ -1,0 +1,121 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Psicologos</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            .botao-home {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                background-color: rgb(231, 249, 255);
+                color: black;
+                padding: 10px;
+                border-radius: 8px;
+                text-decoration: none;
+                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+                z-index: 999;
+            }
+            body {
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                background-color: white;
+                padding: 20px;
+            }
+            h1 {
+                font-size: 28px;
+                color: #222;
+                margin-bottom: 30px;
+                text-align: center;
+                margin-top: 40px;
+            }
+            .card {
+                background-color: rgb(231, 249, 255);
+                border: 2px solid black;
+                border-radius: 12px;
+                display: flex;
+                padding: 20px;
+                max-width: 700px;
+                margin: 0 auto;
+                box-shadow: 0 4px 2px rgba(0, 0, 0, 0.15);
+                align-items: center;
+                gap: 20px;
+                flex-wrap: wrap;
+            }
+            .card img {
+                width: 120px;
+                height: 120px;
+                border-radius: 50%;
+                object-fit: cover;
+                margin-bottom: 20px;
+                align-items: center;
+            }
+            .card-info {
+                flex: 1;
+                min-width: 200px;
+            }
+            .card-info h2 {
+                font-size: 22px;
+                margin-bottom: 8px;
+                color: #333;
+            }
+            .card-info p {
+                font-size: 16px;
+                color: #555;
+            }
+            .botao-marcar {
+                display: block;
+                margin: 20px auto 0;
+                background-color: rgb(231, 249, 255);
+                border: 2px solid black;
+                color: black;
+                padding: 12px 24px;
+                font-size: 20px;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: 0.3s;
+                text-decoration: none;
+                text-align: center;
+            }
+            .botao-marcar:hover {
+                background-color: rgb(19, 2, 172);
+                color: white;
+            }
+            /* Responsivo para o celular*/
+           @media (max-width:600px) {
+                h1 {
+                    font-size: 24px;
+                }
+                .card {
+                    flex-direction: column;
+                    align-items: center;
+                    width: 90%;
+                }
+                .card-info h2 {
+                    font-size: 20px;
+                }
+                .card-info p {
+                    font-size: 15px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Dr. Lucas Dullius</h1>
+        <div class="card">
+            <img src="imagem" alt="Dr. Lucas Dullius">
+            <div class="card-info">
+            <h2>Psicólogo Esportivo.</h2>
+            <p>Especialista em desenvolvimento emocional em esportes.</p>
+        </div>
+                <a href="{{ url_for('inicio') }}" class="botao-home" title="Voltar à página inicial">
+                        <i class="material-icons">home</i>
+        </div>
+        <a href="#" class="botao-marcar">Marcar horário</a>
+    </body>
+</html>

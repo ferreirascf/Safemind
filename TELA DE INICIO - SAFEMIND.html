@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+    <html lang="pt-br">
+        <head>
+          <meta charset="UTF-8">
+              <title>Safemind</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <!-- Ícones do Google -->
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+          <style>
+          * {
+          box-sizing: border-box;
+          padding: 0;
+          margin: 0;
+          }
+          body {
+          font-family: Georgia, 'Times New Roman', Times, serif;
+          display: flex;
+          }
+          .sidebar {
+          width: 60px;
+          background-color: rgb(231, 249, 255);
+          height: 100vh;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          padding-top: 10px;
+          position: fixed;
+          left: 0;
+          top: 0;
+          z-index: 100;
+          border-right: 1px solid #ccc;
+          }
+          .sidebar i {
+          color: black;
+          font-size: 24px;
+          margin: 18px 0;
+          cursor: pointer;
+          transition: 0.2s;
+          padding: 8px;
+          border-radius: 6px;
+          }
+          .sidebar i:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+          }
+          .icon-group {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 15px;
+          }
+          .content {
+          margin-left: 60px;
+          padding: 20px;
+          flex-grow: 1;
+          align-items: center;
+          }
+          .botao-proximidade {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          padding: 12px 16px;
+          font-size: 14px;
+          background-color: rgb(231, 249, 255);
+          color: black;
+          border-radius: 8px;
+          cursor: pointer;
+          margin-top: 40px;
+          width: 100%;
+          max-width: 300px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          margin-bottom: 40px;
+          margin-left: auto;
+          margin-right: auto;
+          }
+          .botao-sugestoes {
+          margin-top: 40px;
+          padding: 12px 16px;
+          font-size: 20px;
+          background-color: rgb(231, 249, 255);
+          color: black;
+          border-radius: 10px;
+          cursor: pointer;
+          width: 100%;
+          max-width: 300px;
+          box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+          border-left: 2px solid #333;
+          border-right: 2px solid #333;
+          align-items: center;
+          margin-bottom: 60px;
+          border: 2px solid #333;
+          display: block;
+          margin: 40px auto 0 auto;
+          text-align: center;
+          text-decoration: none;
+          }
+          .botao-sugestoes:hover {
+          background-color: #004d40;
+          color: white;
+          }
+          .lista-sugestoes {
+          margin-top: 15px;
+          display: flex;
+          overflow-x: auto;
+          gap: 12px;
+          width: 100%;
+          padding-bottom: 10px;
+          max-width: 100%;
+          }
+          .card-profissional {
+          min-width: 160px;
+          height: 180px;
+          background-color: rgb(231, 249, 255);
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          text-align: center;
+          font-weight: bold;
+          flex-shrink: 0;
+          border-radius: 16px;
+          border-left: 2px solid #333;
+          border-right: 2px solid #333;
+          padding: 10px;
+          margin-top: 40px;
+          margin-bottom: 40px;
+          }
+          .card-profissional img {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          object-fit: cover;
+          margin-bottom: 10px;
+          }
+          .card-profissional span {
+          font-size: 14px;
+          font-weight: bold;
+          color: #333;
+          }
+          h1, p {
+          text-align: center;
+          margin-top: 5px;
+          }
+              /* Formato para Celular */
+                  @media (max-width: 600px) {
+                    body {
+                      flex-direction: column;
+                    }
+                    h1, p {
+                      text-align: center;
+                      margin-top: 10px;
+                    }
+                    .sidebar {
+                      flex-direction: row;
+                      width: 100%;
+                      height: auto;
+                      border-top: 1px solid #ccc;
+                      border-bottom: 1px solid #ccc;
+                      justify-content: space-around;
+                      padding: 5px 0;
+                      position: fixed;
+                      bottom: 0;
+                      top: auto;
+                      left: 0;
+                    }
+                    .icon-group {
+                      flex-direction: row;
+                      gap: 5px;
+                    }
+                    .sidebar i {
+                      font-size: 28px;
+                      margin: 0;
+                      padding: 8px;
+                    }
+                    .content {
+                      margin-left: 0;
+                      margin-top: 10px;
+                      padding: 5px;
+                      padding-bottom: 80px;
+                    }
+                } 
+            </style>
+        </head>
+          <body>
+  <div class="sidebar">
+  <div class="icon-group">
+    <a href="{{ url_for('inicio') }}" title="Início">
+      <i class="material-icons">home</i>
+    </a>
+    <a href="{{ url_for('pesquisa') }}" title="Pesquisar">
+      <i class="material-icons">search</i>
+    </a>
+    <a href="{{ url_for('explorar') }}" title="Descobrir">
+      <i class="material-icons">explore</i>
+    </a>
+    <a href="{{ url_for('configuracoes') }}" title="Configurações">
+      <i class="material-icons">menu</i>
+    </a>
+    <a href="{{ url_for('conta') }}" title="Conta">
+      <i class="material-icons">person</i>
+    </a>
+  </div>
+  <img src="{{ url_for('static', filename='logosa.png') }}" alt="Logo do app" class="logo">
+</div>
+
+<div class="content">
+  <h1>Bem vindo ao Safemind</h1>
+  <p>Aqui cuidamos da sua mente!</p>
+  <a class="botao-proximidade" href="{{ url_for('pesquisa') }}">
+    <span class="material-icons">location_on</span>
+    Pesquisar por proximidade
+  </a>
+  <a href="{{ url_for('teste_temperamento') }}" class="botao-sugestoes">
+    Descubra seu temperamento aqui!
+  </a>
+  <div class="lista-sugestoes">
+    <a href="{{ url_for('dra_jaqueline') }}" class="card-profissional">
+      <img src="{{ url_for('static', filename='dra-jaqueline.png') }}" alt="Foto da Dra. Jaqueline">
+      <span>Dra. Jaqueline Fontoura</span>
+    </a>
+    <a href="{{ url_for('dr_lucas') }}" class="card-profissional">
+      <img src="{{ url_for('static', filename='dr-lucas.jpg') }}" alt="Foto do Dr. Lucas">
+      <span>Dr. Lucas Dullius</span>
+    </a>
+    <a href="{{ url_for('dra_priscila') }}" class="card-profissional">
+      <img src="{{ url_for('static', filename='dra-priscila.jpg') }}" alt="Foto da Dra. Priscila">
+      <span>Dra. Priscila Oliveira</span>
+    </a>
+    <a href="{{ url_for('dra_janaina') }}" class="card-profissional">
+      <img src="{{ url_for('static', filename='dra-janaina.jpg') }}" alt="Foto da Dra. Janaina">
+      <span>Dra. Janaina Santos</span>
+    </a>
+  </div>
+</div>
